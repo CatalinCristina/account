@@ -79,9 +79,11 @@ public class AccountServiceImpl implements AccountService {
 
     private long count(DayOfWeek day) {
         switch (day) {
-            case SATURDAY: return 2L;
-            case SUNDAY: return 3L;
-            default: return 1L;
+            case SUNDAY:
+                return 2L;
+            case SATURDAY:
+            default:
+                return 1L;
         }
     }
 }
