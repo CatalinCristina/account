@@ -13,8 +13,11 @@ import javax.persistence.Table;
 
 import com.fasterxml.jackson.annotation.JsonIgnore;
 
+import lombok.AccessLevel;
 import lombok.Data;
+import lombok.Getter;
 import lombok.NoArgsConstructor;
+import lombok.ToString;
 
 @Data
 @NoArgsConstructor
@@ -23,6 +26,7 @@ import lombok.NoArgsConstructor;
 public class Account {
 
     @Id
+    @JsonIgnore
     private Long id;
 
     private String iban;
@@ -33,7 +37,8 @@ public class Account {
     @OneToOne
     @MapsId
     @JoinColumn(name = "id")
-    @JsonIgnore
+    @ToString.Exclude
+    @Getter(value = AccessLevel.NONE)
     private User user;
     
     @PrePersist

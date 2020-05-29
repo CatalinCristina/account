@@ -22,7 +22,7 @@ public class User {
 
     private String username;
 
-    @OneToOne(mappedBy = "user", cascade = CascadeType.ALL, orphanRemoval = true)
+    @OneToOne(mappedBy = "user", cascade = CascadeType.ALL)
     private Account account;
 
     public User(String username) {
